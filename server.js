@@ -6,7 +6,7 @@ var http    = require('http');
 var cheerio = require('cheerio');
 var xml2js  = require('xml2js');
 var request = require('request');
-//var callAirbnb = require('./lib/endpoint.js').callAirbnb;
+var callAirbnb = require('./lib/endpoint.js').callAirbnb;
 var callExpedia = require('./lib/endpoint.js').callExpedia;
 
 
@@ -113,36 +113,11 @@ var SampleApp = function() {
         };
 
         self.routes['/expedia'] = function(req, res){
-          console.log(req.query.place);
           callExpedia(req, res);
         };
 
         self.routes['/airbnb'] = function(req, res) {
-            
-             if(!req.query.lat || !req.query.lon){
-                res.send({"status":"fail", "msg":"please send plat and lon. eg ?lat=40.75458&lon=73.97749"});
-                return false;
-            }
-
-            var lat = req.query.lat
-            var lon= req.query.lon
-
-            var options = {
-                method:'POST',
-              url: 'https://zilyo.p.mashape.com/search?latitude='+lat+'&longitude='+lon,
-              headers: {
-                'X-Mashape-Key': 'tcuqOjloPemshpTEzhbU4Kr7R2EHp1a7HOTjsnnrSYS5cOETim','Accept': 'application/json'
-              }
-            };
-
-            request(options, function(err, data){
-
-
-                res.send(data);
-            });
-
-
-           
+          callAirbnb(req,res);
         };
 
 
