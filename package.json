@@ -25,7 +25,10 @@
   },
 
   "dependencies": {
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "cheerio":"",
+    "xml2js":"",
+    "request":""
   },
   "devDependencies": {},
   "bundleDependencies": [],
