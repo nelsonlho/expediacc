@@ -15,7 +15,8 @@ $ git clone https://github.com/nelsonlho/expediacc.git
 #Starting Service
 1. Type in your command line in your project root folder: $ node server.js
 2. For calling Expedia service, go to localhost:8080/expedia&place=[cityofyourchoice] in your browser
-3. For calling Airbnb service, go to localhost:8080/expedia&city=[cityofyourchoice]&state=[stateofthecity] (arrival dates will be defaulted to today and tomorrow, respectively) or 
-localhost:8080/expedia&city=[cityofyourchoice]&state=[stateofthecity]&arrival=[arrivaldate]&departure=[departuredate]
+3. For calling Airbnb service, go to localhost:8080/expedia&city=[cityofyourchoice]&state=[stateofthecity] 
+4. localhost:8080/expedia&city=[cityofyourchoice]&state=[stateofthecity]&arrival=[arrivaldate]&departure=[departuredate]
 
+The arrival and departure dates will be default to today and tomorrow, respectively, when arrival and departure dates are not provided.
 
