@@ -6,8 +6,8 @@ var http    = require('http');
 var cheerio = require('cheerio');
 var xml2js  = require('xml2js');
 var request = require('request');
-var callAirbnb = require('./lib/endpoint.js').callAirbnb;
-var callExpedia = require('./lib/endpoint.js').callExpedia;
+var callAirbnb = require('./lib/endpoint.js').callAirbnb;  //to call Airbnb API
+var callExpedia = require('./lib/endpoint.js').callExpedia; //to call Expedia API
 
 
 
@@ -112,10 +112,12 @@ var SampleApp = function() {
             res.send(self.cache_get('index.html') );
         };
 
+        //route for expedia -- calling the Expedia API
         self.routes['/expedia'] = function(req, res){
           callExpedia(req, res);
         };
 
+        //route for airbnb -- calling the Airbnb API
         self.routes['/airbnb'] = function(req, res) {
           callAirbnb(req,res);
         };
