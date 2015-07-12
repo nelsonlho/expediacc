@@ -149,6 +149,9 @@ var SampleApp = function() {
         self.createRoutes();
         self.app = express.createServer();
 
+        //load local files from static
+        self.app.use(express.static('public'));
+
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
