@@ -1,7 +1,7 @@
 //runExp() prints "Search Expedia and Partners" when user selects Expedia
 //else calls runAir()
 function runExp() {
-  c
+  
   if (isAir == 0) {
     
     $('#somethingWicked').html('<center><br><h1>Searching Expedia and Partners...</h1><br><br><br><br><br></center>');
@@ -31,8 +31,8 @@ function runAir() {
 //getExpedia() calls addPlace() to update DOM if a list of hotels are found for the searched destination
 //otherwise retunrs "No results found"
 function getExpedia() {
-
-  $.getJSON('/cloud/models/get/exp.php?place=' + $('#destination').val(), function(res) {
+  
+  $.getJSON('http://127.0.0.1:8080/expedia?place=' + $('#destination').val(), function(res) {
 
     $('#somethingWicked').html('');
 
@@ -64,7 +64,7 @@ function getExpedia() {
 //getAirBnB() calls addPlace() to update DOM if a list of hotels are found for the searched destination
 //otherwise retunrs "No results found"
 function getAirBnB() {
-  $.getJSON('/cloud/models/get/?place=' + $('#destination').val(), function(res) {
+  $.getJSON('http://127.0.0.1:8080/airbnb?address=' + $('#destination').val(), function(res) {
     $('#somethingWicked').html('');
 
     if (!res['result']) {
