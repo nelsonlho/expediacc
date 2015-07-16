@@ -32,9 +32,11 @@ function runAir() {
 //otherwise retunrs "No results found"
 function getExpedia() {
   
-  $.getJSON('http://127.0.0.1:8080/expedia?place=' + $('#destination').val(), function(res) {
+  $.getJSON('/expedia?place=' + $('#destination').val() + '&arrival='+$('#arrival').val() + '&departure='+$('#departure').val(), function(res) {
 
     $('#somethingWicked').html('');
+    //console.log($('#destination').val() + '&arrival='+$('#arrival').val() + '&departure='+$('#departure').val());
+    
 
     if (!res['HotelListResponse']) {
 
@@ -54,7 +56,7 @@ function getExpedia() {
 
       var rate = "$" + parseFloat(ruc[i]['lowRate']).toFixed(0);;
       var type = "Expedia";
-
+      console.log(placeId + "desc:  " +desc );
       addPlace(name, image, desc, url, locDesc, rate, type);
 
     }
@@ -64,14 +66,14 @@ function getExpedia() {
 //getAirBnB() calls addPlace() to update DOM if a list of hotels are found for the searched destination
 //otherwise retunrs "No results found"
 function getAirBnB() {
-  $.getJSON('http://127.0.0.1:8080/airbnb?address=' + $('#destination').val(), function(res) {
+  $.getJSON('/airbnb?city=' + $('#destination').val(), function(res) {
     $('#somethingWicked').html('');
 
     if (!res['result']) {
 
       $('#somethingWicked').html('<br><h1>No results found</h1><br>');
     }
-
+    console.log(res);
     ruc = res['result'];
 
     for (i in ruc) {
