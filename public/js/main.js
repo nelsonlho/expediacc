@@ -53,11 +53,13 @@ function getExpedia() {
       var locDesc = ruc[i]['locationDescription'];
       var image = 'http://origin-images.travelnow.com/' + ruc[i]['thumbNailUrl'];
       var url = ruc[i]['deepLink'];
+      var lat = ruc[i]['latitude'];
+      var lng = ruc[i]['longitude'];
 
       var rate = "$" + parseFloat(ruc[i]['lowRate']).toFixed(0);;
       var type = "Expedia";
-      console.log(placeId + "desc:  " +desc );
-      addPlace(name, image, desc, url, locDesc, rate, type);
+      
+      addPlace(name, image, desc, url, locDesc, rate, type, lat, lng);
 
     }
   })
@@ -87,8 +89,10 @@ function getAirBnB() {
 
       var rate = "$" + parseFloat(ruc[i]['price']['nightly']).toFixed(0);;
       var type = "AirBnB";
+      var lat = 0;
+      var lng = 0;
 
-      addPlace(name, image, desc, url, locDesc, rate, type);
+      addPlace(name, image, desc, url, locDesc, rate, type, lat, lng);
 
     }
 
@@ -96,7 +100,7 @@ function getAirBnB() {
 }
 
 //addPlace() appends to the list of hotels/abodes with the name, image, desc, url, locDesc, rate, and type
-function addPlace(name, image, desc, url, locDesc, rate, type) {
+function addPlace(name, image, desc, url, locDesc, rate, type, lat, lng) {
 
   theD = $('<div />').css({
     'width': '100%',
@@ -113,6 +117,10 @@ function addPlace(name, image, desc, url, locDesc, rate, type) {
   }).html('<a href="' + url + '" style="text-decoration:none" target="_blank"><div style="float:left; width: 30%; padding:5px; margin:5px; display:inline-block;"><h1>' + rate + '</h1><br><img src="' + image + '" style="height:100px; width:100px"></div><div style="display:inline-block; width:60%; float:right"><h2 >' + name + '</h2><br><h3 style="font-size:15px">' + desc + '</h3><br><p>' + locDesc + '</p></div></a>');
 
   theD.prependTo('#somethingWicked');
+  $('#somethingWicked div').on('mouseover', function(){
+    var toolTip = $(this).lat + ', ' + $(this).lng;
+    console.log($(this));
+})
 
 }
 
@@ -124,7 +132,8 @@ $(window).load(init1);
 //init1() is run when page initially loads
 //isAir = 0 (Expedia) is initially set
 function init1() {
- console.log("hi");
+
+
   $('a').on('click', function(e) {
     e.preventDefault();
     if ($(this).attr('href') == "#" || $(this).attr('href') == "" || $(this).attr('href').indexOf('index') != -1) {

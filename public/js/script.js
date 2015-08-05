@@ -114,7 +114,7 @@
 
         function l() {
             a(".calendar-input,.calendar").datepicker({
-            	minDate: 0; 
+            	minDate: 0,
                 showOtherMonths: !0,
                 selectOtherMonths: !0,
                 dayNamesMin: ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sta"]
@@ -494,4 +494,9 @@
             })
         })
     })
+
+$('#somethingWicked div').on('mouseover', function(){
+    var toolTip = $(this).lat + ', ' + $(this).lng;
+    console.log(toolTip);
+})
 }(jQuery);
