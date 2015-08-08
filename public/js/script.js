@@ -495,8 +495,5 @@
         })
     })
 
-$('#somethingWicked div').on('mouseover', function(){
-    var toolTip = $(this).lat + ', ' + $(this).lng;
-    console.log(toolTip);
-})
+
 }(jQuery);
