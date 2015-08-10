@@ -80,11 +80,18 @@ function getExpedia() {
 
             addMarker({'lat':lat, 'lon':lon});
           var mapStyle = $('<div />').css({
-                'height': '500px',
+               'position': 'fixed',
+               'height': '100%',
+               'right': '0px',
+               'width': '20%',
+               'z-index': '400',
+               'top': '0px',
+               'background-color': 'gray'
+               /* 'height': '500px',
                 'width': '500px',
                 'margin': '0',
                 'padding': '0',
-                'margin': 'auto',
+                'margin': 'auto',*/
               
             });
             mapStyle.prependTo('#map-canvas');
