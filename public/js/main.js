@@ -230,7 +230,7 @@ function addMarker(params){
   var poslat = lat;
   var poslon = lon;
 
-  var pos= {G: lat, K: lon};
+ 
   
   placeMarker(lat, lon, map);
 
