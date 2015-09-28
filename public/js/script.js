@@ -113,16 +113,39 @@
         }
 
         function l() {
+<<<<<<< HEAD
+            a(".calendar-input:nth(0)").datepicker({
+                minDate: 0,
+=======
             a(".calendar-input,.calendar").datepicker({
             	minDate: 0,
+>>>>>>> d12742aa360937b0900e5180c0e85a641f62b432
                 showOtherMonths: !0,
                 selectOtherMonths: !0,
                 dayNamesMin: ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sta"]
             })
 
+<<<<<<< HEAD
+            $('.calendar-input:nth(0)').on('change', function(){
+
+
+                var startDate1 = new Date($(this).val());
+                console.log(startDate1)
+
+                a(".calendar-input:nth(1)").datepicker({
+                    minDate: new Date((startDate1).setDate(startDate1.getDate() + 1) ),
+                    showOtherMonths: !0,
+                    selectOtherMonths: !0,
+                    dayNamesMin: ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sta"]
+                 })
+
+            })
+        }
+=======
             
         	
     	}
+>>>>>>> d12742aa360937b0900e5180c0e85a641f62b432
 
         function m() {
             if (a("#owl-magazine-ds").length) {
@@ -418,8 +441,12 @@
                         zoom: c,
                         scrollwheel: !1,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
+<<<<<<< HEAD
+                    }, i = new google.maps.Map(document.getElementById("contact-maps"), h),
+=======
                     },
                     i = new google.maps.Map(document.getElementById("contact-maps"), h),
+>>>>>>> d12742aa360937b0900e5180c0e85a641f62b432
                     j = new google.maps.Marker({
                         position: g
                     });
@@ -494,6 +521,10 @@
             })
         })
     })
+<<<<<<< HEAD
+}(jQuery);
+=======
 
 
 }(jQuery);
+>>>>>>> d12742aa360937b0900e5180c0e85a641f62b432
